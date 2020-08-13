@@ -29,6 +29,7 @@ export const UserContextProvider = ({ children }) => {
   }
 
   function addUser(user) {
+    // Call add user API and send dispatch with response.
     dispatch({
       type: "ADD_USER",
       payload: user,
