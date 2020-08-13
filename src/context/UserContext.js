@@ -4,9 +4,15 @@ import ReduceUser from "../reducers/UserReducer";
 const initialState = {
   users: [
     {
-      name: "John Doe",
-      username: "john123",
+      username: "uttam123",
+      name: "Uttam Giri",
       designation: "Frontend Developer",
+    },
+    { username: "anup.shr", name: "Anup Shrestha", designation: "UX Engineer" },
+    {
+      username: "sheejan",
+      name: "Sheejan Tripathi",
+      designation: "Backend Developer",
     },
   ],
 };

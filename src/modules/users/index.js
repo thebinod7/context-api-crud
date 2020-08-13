@@ -10,8 +10,8 @@ export default function Index() {
 
   const [modal, setModal] = useState(false);
   const [formValues, setFormValues] = useState({
-    name: "",
     username: "",
+    name: "",
     designation: "",
   });
 
@@ -28,6 +28,10 @@ export default function Index() {
   };
 
   const handleSubmitClick = () => {
+    if (!formValues.username) {
+      alert("Username is required");
+      return;
+    }
     addUser(formValues);
     toggleModal();
     setFormValues({});
@@ -87,7 +91,7 @@ export default function Index() {
             })
           ) : (
             <tr>
-              <td colSpan={3}>No data available</td>
+              <td colSpan={4}>No data available</td>
             </tr>
           )}
         </tbody>

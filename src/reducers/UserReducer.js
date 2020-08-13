@@ -17,8 +17,7 @@ export default (state, action) => {
 
     case "UPDATE_USER":
       const updatedUser = action.payload;
-
-      const updatedusers = state.users.map((user) => {
+      const data = state.users.map((user) => {
         if (user.username === updatedUser.username) {
           return updatedUser;
         }
@@ -27,8 +26,9 @@ export default (state, action) => {
 
       return {
         ...state,
-        users: updatedusers,
+        users: data,
       };
+
     default:
       return state;
   }
