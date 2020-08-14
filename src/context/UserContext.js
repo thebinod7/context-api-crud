@@ -18,6 +18,7 @@ const initialState = {
 };
 
 export const UserContext = createContext(initialState);
+
 export const UserContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(ReduceUser, initialState);
 

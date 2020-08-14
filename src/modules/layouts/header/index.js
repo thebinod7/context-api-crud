@@ -2,7 +2,7 @@ import React from "react";
 
 import { Navbar, Form, FormControl, Nav, Button } from "react-bootstrap";
 
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 export default function Index() {
   let history = useHistory();

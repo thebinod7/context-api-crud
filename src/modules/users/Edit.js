@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Card, Breadcrumb, Form, Button } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
 import { UserContext } from "../../context/UserContext";
 
