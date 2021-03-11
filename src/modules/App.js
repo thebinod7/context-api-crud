@@ -6,8 +6,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { UserContextProvider } from '../context/UserContext';
 import Dashboard from '../modules/dashboard/';
 import { askForPermissioToReceiveNotifications } from '../modules/pushNotification';

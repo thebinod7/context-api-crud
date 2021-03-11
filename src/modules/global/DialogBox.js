@@ -7,7 +7,9 @@ export default function DialogBox(props) {
       <div
         aria-modal="true"
         style={{ display: showDialog ? 'block' : 'none' }}
-        className={`modal fade dialogbox ${showDialog ? 'show' : ''}`}
+        className={`modal fade dialogbox ${
+          showDialog ? 'show modal-backdrop' : ''
+        }`}
         id="DialogBasic"
         data-backdrop="static"
         tabIndex={-1}

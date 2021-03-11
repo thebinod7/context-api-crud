@@ -17,9 +17,7 @@ export default function Index() {
         <div style={{ marginTop: 70, marginBottom: 50 }}>
           <button type="button" onClick={toggleToast}>
             Toggle Toast
-          </button>
-        </div>
-        <div style={{ marginTop: 70, marginBottom: 50 }}>
+          </button>{' '}
           <button type="button" onClick={toggleDialog}>
             Toggle Dialog
           </button>
