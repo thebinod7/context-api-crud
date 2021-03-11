@@ -1,10 +1,11 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import Header from "../layouts/header";
-import Footer from "../layouts/footer";
-import Users from "../users";
-import EditUser from "../users/Edit";
+import Header from '../layouts/header';
+import Footer from '../layouts/footer';
+import Users from '../users';
+import EditUser from '../users/Edit';
+import Demo from '../demo';
 
 export default function Index() {
   return (
@@ -13,6 +14,7 @@ export default function Index() {
       <div className="container" style={{ marginTop: 20 }}>
         <Switch>
           <Route exact path="/" component={Users} />
+          <Route exact path="/demo" component={Demo} />
           <Route exact path="/edit/:id" component={EditUser} />
         </Switch>
         <Footer />

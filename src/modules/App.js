@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { UserContextProvider } from "../context/UserContext";
-import Dashboard from "../modules/dashboard/";
+import { UserContextProvider } from '../context/UserContext';
+import Dashboard from '../modules/dashboard/';
+import { askForPermissioToReceiveNotifications } from '../modules/pushNotification';
 
 function App() {
-  const user = { name: "John Doe" }; // Get user from localstorage or cookies
+  useEffect(() => {
+    askForPermissioToReceiveNotifications();
+  }, []);
+  const user = { name: 'John Doe' }; // Get user from localstorage or cookies
   return (
     <>
       <UserContextProvider>
