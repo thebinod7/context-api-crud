@@ -5,6 +5,7 @@ import Header from '../layouts/header';
 import Footer from '../layouts/footer';
 import Users from '../users';
 import EditUser from '../users/Edit';
+import AddUser from '../users/Add';
 import Demo from '../demo';
 
 export default function Index() {
@@ -14,6 +15,7 @@ export default function Index() {
       <div className="container" style={{ marginTop: 20 }}>
         <Switch>
           <Route exact path="/" component={Users} />
+          <Route exact path="/add_user" component={AddUser} />
           <Route exact path="/demo" component={Demo} />
           <Route exact path="/edit/:id" component={EditUser} />
         </Switch>
