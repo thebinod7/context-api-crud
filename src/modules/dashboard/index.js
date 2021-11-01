@@ -7,6 +7,7 @@ import Users from '../users';
 import EditUser from '../users/Edit';
 import AddUser from '../users/Add';
 import Demo from '../demo';
+import CountryPaginate from '../country_paginate';
 
 export default function Index() {
   return (
@@ -17,6 +18,7 @@ export default function Index() {
           <Route exact path="/" component={Users} />
           <Route exact path="/add_user" component={AddUser} />
           <Route exact path="/demo" component={Demo} />
+          <Route exact path="/country" component={CountryPaginate} />
           <Route exact path="/edit/:id" component={EditUser} />
         </Switch>
         <Footer />
