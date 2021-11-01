@@ -13,8 +13,8 @@ export default function Index() {
   const totalCountries = allCountries.length;
 
   const onPageChanged = useCallback(
-    (data) => {
-      const { currentPage, totalPages, pageLimit } = data;
+    (paginationData) => {
+      const { currentPage, totalPages, pageLimit } = paginationData;
 
       const offset = (currentPage - 1) * pageLimit;
       const currentCountries = allCountries.slice(offset, offset + pageLimit);
@@ -27,8 +27,6 @@ export default function Index() {
   );
 
   useEffect(() => {
-    console.log('I country list  effect');
-
     setAllCountries(Countries);
   }, []);
 

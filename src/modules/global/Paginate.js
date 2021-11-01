@@ -2,6 +2,8 @@ import React, { useState, Fragment, useEffect, useCallback } from 'react';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
+const FIRST_PAGE = 1;
+const TOTAL_PAGES_IN_NUMBER = 5;
 
 const range = (from, to, step = 1) => {
   let i = from;
@@ -17,10 +19,15 @@ const range = (from, to, step = 1) => {
 
 export default function Paginate(props) {
   const [currentPage, setCurrentPage] = useState(1);
-  const { totalRecords = 0, pageLimit = 30, pageNeighbours = 0 } = props;
+  const {
+    totalRecords = 0,
+    pageLimit = 30,
+    pageNeighbours = 0,
+    onPageChanged,
+  } = props;
 
   const totalPages = Math.ceil(totalRecords / pageLimit);
-  const { onPageChanged = (f) => f } = props;
+  //   const { onPageChanged = (f) => f } = props;
 
   const handlePageChange = useCallback(
     (paginationData) => {
@@ -62,24 +69,23 @@ export default function Paginate(props) {
   };
 
   const fetchPageNumbers = () => {
-    // const totalPages = totalPages;
-    // const currentPage = currentPage;
-    // const pageNeighbours = pageNeighbours;
+    // const totalNumbers = pageNeighbours * 2 + 3; // Total page numbers to display
+    const totalNumbers = TOTAL_PAGES_IN_NUMBER; // Total page numbers to display
 
-    const totalNumbers = pageNeighbours * 2 + 3;
-    const totalBlocks = totalNumbers + 2;
+    const totalBlocks = totalNumbers + 2; // Total page blocks to display i.e. 7 for now
 
     if (totalPages > totalBlocks) {
       let pages = [];
 
-      const leftBound = currentPage - pageNeighbours;
-      const rightBound = currentPage + pageNeighbours;
+      const leftBound = currentPage - pageNeighbours; // Page before current page
+      const rightBound = currentPage + pageNeighbours; // Page after current page
       const beforeLastPage = totalPages - 1;
 
+      // For range calculation
       const startPage = leftBound > 2 ? leftBound : 2;
       const endPage = rightBound < beforeLastPage ? rightBound : beforeLastPage;
 
-      pages = range(startPage, endPage);
+      pages = range(startPage, endPage); // Prev,Current and Next pages || [2] => Currenpage=1 || [2,3] => Currentpage = 2
 
       const pagesCount = pages.length;
       const singleSpillOffset = totalNumbers - pagesCount - 1;
@@ -100,20 +106,17 @@ export default function Paginate(props) {
         pages = [leftSpillPage, ...pages, rightSpillPage];
       }
 
-      return [1, ...pages, totalPages];
+      return [FIRST_PAGE, ...pages, totalPages];
     }
 
-    return range(1, totalPages);
+    return range(FIRST_PAGE, totalPages);
   };
 
   useEffect(() => {
-    gotoPage(1);
-    console.log('I am paginate effect');
+    gotoPage(FIRST_PAGE);
   }, [gotoPage]);
 
   const pages = fetchPageNumbers();
-
-  console.log({ currentPage });
 
   return (
     <Fragment>
